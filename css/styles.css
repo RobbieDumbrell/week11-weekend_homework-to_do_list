@@ -1,0 +1,99 @@
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    background-color: rebeccapurple;
+}
+
+h2 {
+    text-align: center;
+    padding: 5px;
+    text-decoration: underline;
+}
+
+#new-todo-item-form {
+    border: 1px solid white;
+    width: 80%;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.todo-form-input {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#title {
+    display: block;
+    width: 50%;
+    margin: 5px auto;
+    height: 3em;
+    text-align: center;
+}
+
+#details {
+    display: block;
+    width: 50%;
+    margin: 5px auto;
+    height: 9em;
+    padding: 10px;
+    text-align: center;
+    resize: none;
+}
+
+#deadline {
+    display: block;
+    width: 50%;
+    margin: 5px auto;
+    height: 3em;
+    text-align: center;
+}
+
+#category {
+    display: block;
+    width: 50%;
+    margin: 5px auto;
+    height: 3em;
+    text-align-last: center;
+}
+
+.todo-form-input input[type="submit"] {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#delete-all {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-item {
+    background-color: blue;
+}
+
+

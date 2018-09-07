@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +8,53 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
     <script src="js/app.js"></script>
 </head>
+
 <body>
     <h1>Do These Things!</h1>
 
     <form id="new-todo-item-form">
 
-        <h2>Add A Thing To Do:</h2>
+        <h2>Add A Thing To Do</h2>
 
-        <label for="title">The Thing To Do:</label>
-        <input type="text" id="title" autocomplete="off" required>
+        <div class="todo-form-input">
+            <label for="title">The Thing To Do:</label>
+            <input type="text" id="title" autocomplete="off" required>
+        </div>
 
-        <label for="details">Additional Details:</label>
-        <input type="text" id="title" autocomplete="off">
+        <div class="todo-form-input">
+            <label for="details">Additional Details:</label>
+            <textarea id="details" cols="30" rows="10"></textarea>
+        </div>
 
-        <label for="deadline">Deadline:</label>
-        <input type="date" id="deadline" autocomplete="off">
+        <div class="todo-form-input">
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline" autocomplete="off">
+        </div>
 
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="" disabled selected>--select--</option>
-            <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="social">Social</option>
-        </select>
+        <div class="todo-form-input">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="" disabled selected>--select--</option>
+                <option value="Home">Home</option>
+                <option value="Work">Work</option>
+                <option value="Social">Social</option>
+            </select>
+        </div>
 
-        <input type="submit" value="SAVE">
-
-        <h2>Here Are Your Things To Do:</h2>
-
-        <div id="todo-list">
-
+        <div class="todo-form-input">
+            <input type="submit" value="SAVE">
         </div>
 
     </form>
+
+    <h2>Here Are Your Things To Do</h2>
+
+    <button id="delete-all">DELETE ALL</button>
+
+    <div id="todo-list">
+
+    </div>
+
 </body>
+
 </html>
