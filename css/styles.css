@@ -3,6 +3,7 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    font-family: Verdana;
 }
 
 h1 {
@@ -15,6 +16,10 @@ h2 {
     text-align: center;
     padding: 5px;
     text-decoration: underline;
+}
+
+ul li {
+    list-style-type: none;
 }
 
 #new-todo-item-form {
@@ -36,6 +41,7 @@ h2 {
     margin: 5px auto;
     height: 3em;
     text-align: center;
+    font-size: 1em;
 }
 
 #details {
@@ -46,6 +52,7 @@ h2 {
     padding: 10px;
     text-align: center;
     resize: none;
+    font-size: 0.75em;
 }
 
 #deadline {
@@ -54,6 +61,7 @@ h2 {
     margin: 5px auto;
     height: 3em;
     text-align: center;
+    font-size: 1em;
 }
 
 #category {
@@ -62,6 +70,7 @@ h2 {
     margin: 5px auto;
     height: 3em;
     text-align-last: center;
+    font-size: 1em;
 }
 
 .todo-form-input input[type="submit"] {
@@ -85,15 +94,19 @@ h2 {
     margin: 0 auto;
 }
 
-.todo-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#todo-list {
+    display: block;
+    text-align: center;
 }
 
 .todo-item {
+    display: block;
     background-color: blue;
+    display: inline-block;
+    width: 80%;
+    margin: 10px auto;
+
 }
+
 
 

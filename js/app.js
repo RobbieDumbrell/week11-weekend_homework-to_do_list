@@ -6,29 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteAllButton.addEventListener('click', handleDeleteAllButtonClick);
 })
 
+
+const createNewToDoItemProperty = function(form, property) {
+    const newProperty = document.createElement('li');
+    newProperty.classList.add(`todo-item-${property}`);
+    newProperty.textContent = form[property].value;
+
+    return newProperty;
+}
+
 const createNewToDoItem = function(form) {
     const newToDoItem = document.createElement('ul');
     newToDoItem.classList.add('todo-item');
 
-    const title = document.createElement('li');
-    title.classList.add('todo-item-title');
-    title.textContent = form.title.value;
-    newToDoItem.appendChild(title);
+    const newTitle = createNewToDoItemProperty(form, 'title')
+    newToDoItem.appendChild(newTitle);
 
-    const details = document.createElement('li');
-    details.classList.add('todo-item-details');
-    details.textContent = form.details.value;
-    newToDoItem.appendChild(details);
+    const newDetails = createNewToDoItemProperty(form, 'details')
+    newToDoItem.appendChild(newDetails);
 
-    const deadline = document.createElement('li');
-    deadline.classList.add('todo-item-deadline');
-    deadline.textContent = form.deadline.value;
-    newToDoItem.appendChild(deadline);
+    const newDeadline = createNewToDoItemProperty(form, 'deadline')
+    newToDoItem.appendChild(newDeadline);
 
-    const category = document.createElement('li');
-    category.classList.add('todo-item-category');
-    category.textContent = form.category.value;
-    newToDoItem.appendChild(category);
+    const newCategory = createNewToDoItemProperty(form, 'category')
+    newToDoItem.appendChild(newCategory);
 
     return newToDoItem;
 }
