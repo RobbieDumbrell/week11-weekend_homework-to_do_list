@@ -8,6 +8,37 @@
     <script src="js/app.js"></script>
 </head>
 <body>
-    
+    <h1>Do These Things!</h1>
+
+    <form id="new-todo-item-form">
+
+        <h2>Add A Thing To Do:</h2>
+
+        <label for="title">The Thing To Do:</label>
+        <input type="text" id="title" autocomplete="off" required>
+
+        <label for="details">Additional Details:</label>
+        <input type="text" id="title" autocomplete="off">
+
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" autocomplete="off">
+
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="" disabled selected>--select--</option>
+            <option value="home">Home</option>
+            <option value="work">Work</option>
+            <option value="social">Social</option>
+        </select>
+
+        <input type="submit" value="SAVE">
+
+        <h2>Here Are Your Things To Do:</h2>
+
+        <div id="todo-list">
+
+        </div>
+
+    </form>
 </body>
 </html>
