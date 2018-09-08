@@ -1,6 +1,6 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     margin: 0;
     padding: 0;
     font-family: Verdana;
@@ -9,7 +9,8 @@ body {
 h1 {
     text-align: center;
     padding: 10px;
-    background-color: rebeccapurple;
+    background-color: #58355E;
+    color: white;
 }
 
 h2 {
@@ -23,67 +24,63 @@ ul li {
 }
 
 #new-todo-item-form {
-    border: 1px solid white;
+    border: 3px solid black;
+    background-color: #5998C5;
+    /* opacity: 0.7; */
     width: 80%;
     margin: 0px auto;
     padding: 10px;
+    color: white;
 }
 
 .todo-form-input {
     display: block;
     text-align: center;
     margin: 20px auto;
+    font-weight: bold;
 }
 
-#title {
+#title, #details, #deadline, #category {
     display: block;
     width: 50%;
     margin: 5px auto;
     height: 3em;
     text-align: center;
+    border: 2px solid black;
     font-size: 1em;
-}
+    background-color: #87AAC4;
+
+}   
 
 #details {
-    display: block;
-    width: 50%;
-    margin: 5px auto;
     height: 9em;
     padding: 10px;
-    text-align: center;
     resize: none;
     font-size: 0.75em;
 }
 
-#deadline {
-    display: block;
-    width: 50%;
-    margin: 5px auto;
-    height: 3em;
-    text-align: center;
-    font-size: 1em;
-}
-
 #category {
-    display: block;
-    width: 50%;
-    margin: 5px auto;
-    height: 3em;
     text-align-last: center;
-    font-size: 1em;
 }
 
 .todo-form-input input[type="submit"] {
-    background-color: green;
-    color: white;
+    background-color: #CFFFB0;
+    color: black;
     padding: 5px;
     width: 100px;
     font-weight: bold;
     cursor: pointer;
+    border: 2px solid black;
 }
 
+.todo-form-input input[type="submit"]:hover {
+    background-color: black;
+    color: #CFFFB0;
+}
+
+
 #delete-all {
-    background-color: red;
+    background-color: #E03616;
     color: white;
     padding: 5px;
     width: 100px;
@@ -92,21 +89,52 @@ ul li {
     display: block;
     width: 100px;
     margin: 0 auto;
+    border: 2px solid black;
 }
+
+#delete-all:hover {
+    background-color: black;
+    color: #E03616;
+}
+
 
 #todo-list {
     display: block;
     text-align: center;
+    border: 3px solid black;
+    background-color: #FFF689;
+    /* opacity: 0.7; */
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    color: black;
 }
 
 .todo-item {
+    background-color: white;
+    color: black;
     display: block;
-    background-color: blue;
-    display: inline-block;
-    width: 80%;
+    width: 300px;
     margin: 10px auto;
-
+    padding-left: 0px;
+    border: 2px solid black;
 }
 
+.todo-item-title {
+    font-weight: bold;
+    padding: 5px;
+}
+
+.todo-item-details {
+    padding: 5px;
+}
+
+.todo-item-deadline {
+    padding: 5px;
+} 
+
+.todo-item-category {
+    padding: 5px;
+}
 
 

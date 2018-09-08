@@ -7,47 +7,57 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-const createNewToDoItemProperty = function(form, property) {
+const createNewToDoItemProperty = function (form, property, pretext) {
     const newProperty = document.createElement('li');
     newProperty.classList.add(`todo-item-${property}`);
-    newProperty.textContent = form[property].value;
+    newProperty.textContent = `${pretext} ${form[property].value}`;
 
     return newProperty;
 }
 
-const createNewToDoItem = function(form) {
+const createNewToDoItem = function (form) {
     const newToDoItem = document.createElement('ul');
     newToDoItem.classList.add('todo-item');
 
-    const newTitle = createNewToDoItemProperty(form, 'title')
+    const newTitle = createNewToDoItemProperty(form, 'title', '')
     newToDoItem.appendChild(newTitle);
 
-    const newDetails = createNewToDoItemProperty(form, 'details')
+    const newDetails = createNewToDoItemProperty(form, 'details', '')
     newToDoItem.appendChild(newDetails);
 
-    const newDeadline = createNewToDoItemProperty(form, 'deadline')
+    const newDeadline = createNewToDoItemProperty(form, 'deadline', 'Due: ')
     newToDoItem.appendChild(newDeadline);
 
-    const newCategory = createNewToDoItemProperty(form, 'category')
+    const newCategory = createNewToDoItemProperty(form, 'category', 'Category: ')
     newToDoItem.appendChild(newCategory);
 
     return newToDoItem;
 }
 
-const handleNewItemFormSubmit = function(event) {
+const handleNewItemFormSubmit = function (event) {
     event.preventDefault();
 
-    const toDoList = document.querySelector('#todo-list');
-    const newToDoItem = createNewToDoItem(event.target);
+    if (document.querySelector('#todo-list')) {
+        const newToDoItem = createNewToDoItem(event.target);
+        const toDoList = document.querySelector('#todo-list');
+        toDoList.appendChild(newToDoItem);
+    } else {
+        const toDoList = document.createElement('div')
+        toDoList.id = 'todo-list';
+        const newToDoItem = createNewToDoItem(event.target);
+        toDoList.appendChild(newToDoItem);
+        const body = document.querySelector('body');
+        body.appendChild(toDoList);
+    }
 
-    toDoList.appendChild(newToDoItem);
     event.target.reset();
 }
 
-const handleDeleteAllButtonClick = function(event) {
+const handleDeleteAllButtonClick = function (event) {
     event.preventDefault();
     const toDoList = document.querySelector('#todo-list');
+    const body = document.querySelector('body');
+    body.removeChild(toDoList);
 
-    toDoList.innerHTML = "";
 }
 
