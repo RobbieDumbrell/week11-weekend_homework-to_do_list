@@ -88,13 +88,85 @@ ul li {
     cursor: pointer;
     display: block;
     width: 100px;
-    margin: 0 auto;
+    margin: 5px auto;
     border: 2px solid black;
 }
 
 #delete-all:hover {
     background-color: black;
     color: #E03616;
+}
+
+#delete-all-done {
+    background-color: #6AA841;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 5px auto;
+    border: 2px solid black;
+}
+
+#delete-all-done:hover {
+    background-color: black;
+    color: #6AA841;
+}
+
+.delete-item {
+    background-color: #E03616;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    border: 2px solid black;
+}
+
+.delete-item:hover {
+    background-color: black;
+    color: #E03616;
+}
+
+.done-button-item {
+    background-color: #6AA841;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    border: 2px solid black;
+}
+
+.done-button-item:hover {
+    background-color: black;
+    color: #6AA841;
+}
+
+.important-button-item {
+    background-color: #FC8A2D;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    border: 2px solid black;
+}
+
+.important-button-item:hover {
+    background-color: black;
+    color: #FC8A2D;
 }
 
 
@@ -113,6 +185,26 @@ ul li {
 .todo-item {
     background-color: white;
     color: black;
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    padding-left: 0px;
+    border: 2px solid black;
+}
+
+.done-todo-item {
+    background-color: #6AA841;
+    color: white;
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    padding-left: 0px;
+    border: 2px solid black;
+}
+
+.important-todo-item {
+    background-color: #FC8A2D;
+    color: white;
     display: block;
     width: 300px;
     margin: 10px auto;

@@ -4,8 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const deleteAllButton = document.querySelector('#delete-all');
     deleteAllButton.addEventListener('click', handleDeleteAllButtonClick);
+
+    const deleteAllDoneButton = document.querySelector('#delete-all-done');
+    deleteAllDoneButton.addEventListener('click', handleDeleteAllDoneButtonClick);
 })
 
+// CREATE NEW ELEMENTS FUNCTIONS:
 
 const createNewToDoItemProperty = function (form, property, pretext) {
     const newProperty = document.createElement('li');
@@ -31,8 +35,43 @@ const createNewToDoItem = function (form) {
     const newCategory = createNewToDoItemProperty(form, 'category', 'Category: ')
     newToDoItem.appendChild(newCategory);
 
+    // MARK TO DONE BUT DON'T DELETE
+    const newDoneButton = document.createElement('button');
+    newDoneButton.classList.add('done-button-item');
+    newDoneButton.textContent = 'DONE!';
+    newToDoItem.appendChild(newDoneButton);
+
+    newDoneButton.addEventListener('click', handleDoneItemButtonClick);
+
+    // MARK AS IMPORTANT
+    const newImportantButton = document.createElement('button');
+    newImportantButton.classList.add('important-button-item');
+    newImportantButton.textContent = 'IMPORTANT!'
+    newToDoItem.appendChild(newImportantButton);
+
+    newImportantButton.addEventListener('click', handleImportantItemButtonClick);
+
+    // DELETE A SINGLE ITEM IN TO DO LIST
+    const newDeleteItemButton = document.createElement('button');
+    newDeleteItemButton.classList.add('delete-item');
+    newDeleteItemButton.textContent = 'DELETE';
+    newToDoItem.appendChild(newDeleteItemButton);
+
+    newDeleteItemButton.addEventListener('click', handleDeleteItemButtonClick);
+
     return newToDoItem;
 }
+
+const removeListIfEmpty = function(){
+    const toDoList = document.querySelector('#todo-list');
+
+    if (toDoList.childNodes.length === 0) {
+        const body = document.querySelector('body');
+        body.removeChild(toDoList);
+    }
+}
+
+// HANDLE EVENTS FUNCTIONS:
 
 const handleNewItemFormSubmit = function (event) {
     event.preventDefault();
@@ -58,6 +97,39 @@ const handleDeleteAllButtonClick = function (event) {
     const toDoList = document.querySelector('#todo-list');
     const body = document.querySelector('body');
     body.removeChild(toDoList);
+}
 
+const handleDeleteAllDoneButtonClick = function (event) {
+    event.preventDefault();
+    const toDoList = document.querySelector('#todo-list');
+    const doneToDoItems = document.querySelectorAll('.done-todo-item');
+
+    for (const toDoItem of doneToDoItems) {
+        toDoList.removeChild(toDoItem);
+    }
+
+    removeListIfEmpty();
+}
+
+const handleDeleteItemButtonClick = function (event) {
+    event.preventDefault();
+    const deletingToDoItem = this.parentElement;
+    const toDoList = document.querySelector('#todo-list');
+
+    toDoList.removeChild(deletingToDoItem);
+
+    removeListIfEmpty();
+}
+
+const handleDoneItemButtonClick = function (event) {
+    event.preventDefault();
+    const doneToDoItem = this.parentElement;
+    doneToDoItem.classList = 'done-todo-item';
+}
+
+const handleImportantItemButtonClick = function (event) {
+    event.preventDefault();
+    const importantToDoItem = this.parentElement;
+    importantToDoItem.classList = 'important-todo-item';
 }
 
