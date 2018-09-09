@@ -19,6 +19,14 @@ const createNewToDoItemProperty = function (form, property, pretext) {
     return newProperty;
 }
 
+const createNewToDoItemButton = function (cssClass, buttonText) {
+    const newButton = document.createElement('button');
+    newButton.classList.add(`${cssClass}`);
+    newButton.textContent = `${buttonText}`;
+
+    return newButton;
+}
+
 const createNewToDoItem = function (form) {
     const newToDoItem = document.createElement('ul');
     newToDoItem.classList.add('todo-item');
@@ -36,31 +44,25 @@ const createNewToDoItem = function (form) {
     newToDoItem.appendChild(newCategory);
 
     // MARK TO DONE BUT DON'T DELETE
-    const newDoneButton = document.createElement('button');
-    newDoneButton.classList.add('done-button-item');
-    newDoneButton.textContent = 'DONE!';
-    newToDoItem.appendChild(newDoneButton);
 
+    const newDoneButton = createNewToDoItemButton('done-button-item', 'DONE!');
+    newToDoItem.appendChild(newDoneButton);
     newDoneButton.addEventListener('click', handleDoneItemButtonClick);
 
     // MARK AS IMPORTANT
-    const newImportantButton = document.createElement('button');
-    newImportantButton.classList.add('important-button-item');
-    newImportantButton.textContent = 'IMPORTANT!'
+    const newImportantButton = createNewToDoItemButton('important-button-item', 'IMPORTANT!');
     newToDoItem.appendChild(newImportantButton);
-
     newImportantButton.addEventListener('click', handleImportantItemButtonClick);
 
     // DELETE A SINGLE ITEM IN TO DO LIST
-    const newDeleteItemButton = document.createElement('button');
-    newDeleteItemButton.classList.add('delete-item');
-    newDeleteItemButton.textContent = 'DELETE';
+    const newDeleteItemButton = createNewToDoItemButton('delete-item', 'DELETE');
     newToDoItem.appendChild(newDeleteItemButton);
-
     newDeleteItemButton.addEventListener('click', handleDeleteItemButtonClick);
 
     return newToDoItem;
 }
+
+// REMOVE THE TO DO LIST DIV IF IT IS EMPTY OF TO DO ITEMS.
 
 const removeListIfEmpty = function(){
     const toDoList = document.querySelector('#todo-list');
@@ -124,12 +126,20 @@ const handleDeleteItemButtonClick = function (event) {
 const handleDoneItemButtonClick = function (event) {
     event.preventDefault();
     const doneToDoItem = this.parentElement;
-    doneToDoItem.classList = 'done-todo-item';
+    if (doneToDoItem.classList.contains('done-todo-item')) {
+        doneToDoItem.classList = 'todo-item';
+    } else {
+        doneToDoItem.classList = 'done-todo-item';
+    }
 }
 
 const handleImportantItemButtonClick = function (event) {
     event.preventDefault();
     const importantToDoItem = this.parentElement;
-    importantToDoItem.classList = 'important-todo-item';
+    if (importantToDoItem.classList.contains('important-todo-item')) {
+        importantToDoItem.classList = 'todo-item';
+    } else {
+        importantToDoItem.classList = 'important-todo-item';
+    }
 }
 
