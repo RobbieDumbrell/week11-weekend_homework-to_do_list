@@ -78,6 +78,24 @@ ul li {
     color: #CFFFB0;
 }
 
+#add-new {
+    background-color: #CFFFB0;
+    color: black;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 5px auto;
+    border: 2px solid black;
+}
+
+#add-new:hover {
+    background-color: black;
+    color: #CFFFB0;
+}
+
 
 #delete-all {
     background-color: #E03616;

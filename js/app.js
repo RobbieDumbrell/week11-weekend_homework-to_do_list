@@ -1,4 +1,10 @@
+// let today = new Date();
+// today.getDate();
+
 document.addEventListener('DOMContentLoaded', () => {
+    const displayNewItemFormButton = document.querySelector('#add-new');
+    displayNewItemFormButton.addEventListener('click', handleAddNewItemButtonClick);
+
     const newItemForm = document.querySelector('#new-todo-item-form');
     newItemForm.addEventListener('submit', handleNewItemFormSubmit);
 
@@ -43,13 +49,12 @@ const createNewToDoItem = function (form) {
     const newCategory = createNewToDoItemProperty(form, 'category', 'Category: ')
     newToDoItem.appendChild(newCategory);
 
-    // MARK TO DONE BUT DON'T DELETE
-
+    // MARK ITEM TO DONE BUT DON'T DELETE
     const newDoneButton = createNewToDoItemButton('done-button-item', 'DONE!');
     newToDoItem.appendChild(newDoneButton);
     newDoneButton.addEventListener('click', handleDoneItemButtonClick);
 
-    // MARK AS IMPORTANT
+    // MARK ITEM AS IMPORTANT
     const newImportantButton = createNewToDoItemButton('important-button-item', 'IMPORTANT!');
     newToDoItem.appendChild(newImportantButton);
     newImportantButton.addEventListener('click', handleImportantItemButtonClick);
@@ -64,7 +69,7 @@ const createNewToDoItem = function (form) {
 
 // REMOVE THE TO DO LIST DIV IF IT IS EMPTY OF TO DO ITEMS.
 
-const removeListIfEmpty = function(){
+const removeListIfEmpty = function () {
     const toDoList = document.querySelector('#todo-list');
 
     if (toDoList.childNodes.length === 0) {
@@ -73,7 +78,19 @@ const removeListIfEmpty = function(){
     }
 }
 
-// HANDLE EVENTS FUNCTIONS:
+// HANDLE EVENTS:
+
+const handleAddNewItemButtonClick = function (event) {
+    event.preventDefault();
+
+    const newItemFormToReveal = document.querySelector('#new-todo-item-form');
+
+    if (newItemFormToReveal.style.display === 'block'){
+        newItemFormToReveal.style.display = 'none';
+    } else {
+        newItemFormToReveal.style.display = 'block';
+    }
+}
 
 const handleNewItemFormSubmit = function (event) {
     event.preventDefault();
